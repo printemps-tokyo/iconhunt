@@ -145,7 +145,7 @@ const TABLE: &[Entry] = &[
     (&["円グラフ", "エングラフ"], &["chart-pie", "pie-chart"]),
     (&["棒グラフ", "ボウグラフ"], &["chart-bar", "bar-chart"]),
     (&["表", "ヒョウ", "テーブル"], &["table"]),
-    (&["電卓", "デンタク", "計算", "ケイサン"], &["calculator"]),
+    (&["電卓", "デンタク", "計算", "ケイサン", "計算機"], &["calculator"]),
     (&["ペンキ", "塗る", "ヌル", "パレット", "絵の具", "エノグ"], &["palette", "paint"]),
     (&["筆", "フデ", "ブラシ"], &["brush"]),
     // Commerce
@@ -214,6 +214,36 @@ const TABLE: &[Entry] = &[
     (&["アットマーク"], &["at"]),
     (&["健康", "ケンコウ", "医者", "イシャ"], &["health", "doctor"]),
     (&["薬", "クスリ"], &["pill", "medicine"]),
+    (&["注射", "チュウシャ", "ワクチン"], &["syringe", "needle"]),
+    (&["マスク"], &["face-mask", "mask"]),
+    (&["心臓", "シンゾウ", "心拍", "シンパク"], &["heart-pulse", "heart"]),
+    (&["脳", "頭脳", "ズノウ"], &["brain"]),
+    (&["地震", "ジシン"], &["earthquake"]),
+    // Body and clothing
+    (&["手"], &["hand"]),
+    (&["足"], &["foot", "footprint"]),
+    (&["眼鏡", "メガネ"], &["glasses"]),
+    (&["帽子", "ボウシ"], &["hat"]),
+    (&["服", "フク", "シャツ", "Tシャツ"], &["shirt", "tshirt"]),
+    (&["靴", "クツ", "シューズ"], &["shoe"]),
+    // Devices and security
+    (&["充電", "ジュウデン"], &["battery-charging"]),
+    (&["指紋", "シモン"], &["fingerprint"]),
+    (&["顔認証", "カオニンショウ"], &["face-recognition", "face-id"]),
+    (&["数字", "スウジ", "番号", "バンゴウ"], &["numeric", "number"]),
+    (&["パズル", "ジグソー"], &["puzzle"]),
+    // Places, transport and money
+    (&["テント"], &["tent"]),
+    (&["工場", "コウジョウ"], &["factory"]),
+    (&["ホテル", "宿泊", "シュクハク"], &["hotel", "bed"]),
+    (&["駅", "エキ"], &["train-station", "train"]),
+    (&["信号", "シンゴウ", "信号機"], &["traffic-light"]),
+    (&["ガソリン", "給油", "キュウユ", "ガソリンスタンド"], &["gas-station", "fuel"]),
+    (&["ユーロ"], &["euro"]),
+    (&["ビットコイン", "仮想通貨", "カソウツウカ", "暗号資産"], &["bitcoin"]),
+    (&["株", "株価", "カブカ", "株式", "カブシキ"], &["stock", "chart-line"]),
+    (&["上昇", "ジョウショウ", "値上がり"], &["trending-up"]),
+    (&["下落", "ゲラク", "下降", "カコウ", "値下がり"], &["trending-down"]),
 ];
 
 /// The result of looking up a query.
@@ -398,6 +428,8 @@ mod tests {
         );
         assert_eq!(translate("ごみばこ").queries[0], "trash");
         assert_eq!(translate("設定").queries, vec!["settings", "cog", "gear"]);
+        assert_eq!(translate("しもん").queries, vec!["fingerprint"]);
+        assert_eq!(translate("株価").queries[0], "stock");
     }
 
     #[test]

@@ -13,7 +13,7 @@ things the API does not:
   `non-commercial` or `unknown`, and `--no-attribution` keeps only icons you
   can use without visible credit.
 - Japanese keywords. Iconify only matches English words, so `家` finds
-  nothing. iconhunt maps about 190 common Japanese words (`家`, `ゴミ箱`,
+  nothing. iconhunt maps about 215 common Japanese words (`家`, `ゴミ箱`,
   `歯車`, `ほーむ`) to the English words icon sets use.
 - Previews in the terminal, drawn with half-block characters, and an HTML
   contact sheet for a closer look.
@@ -188,7 +188,7 @@ Japanese words are looked up in a fixed table in `src/ja.rs`. Before the
 lookup, full-width ASCII becomes ASCII and hiragana becomes katakana, so
 `ほーむ` and `ホーム` are the same word. A word made of known parts is split by
 longest match (`猫の写真` becomes `cat camera`), with particles such as `の`
-skipped. The table holds about 190 entries for things icons depict:
+skipped. The table holds about 215 entries for things icons depict:
 navigation, actions, people, objects, commerce, weather, animals, transport,
 food and status.
 
@@ -230,7 +230,7 @@ existing file or a dangling symlink is never written through without
 
 ## Limits
 
-- Search ranking and coverage are the API's. In testing on 2026-11-02 the
+- Search ranking and coverage are the API's. In testing on 2026-11-02 (rechecked 2026-11-11) the
   public API returned at most 128 results per query, whatever the limit, and
   answered `start` with HTTP 400. iconhunt therefore always asks from the
   first result and pages (`--start`) through what came back.
